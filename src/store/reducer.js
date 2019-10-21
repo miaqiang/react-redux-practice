@@ -1,22 +1,35 @@
+
+import { CHANGE_INPUT_VALUE, ADD_TOTO_ITEM, DELETE_TODO_ITEM } from "./actionType";
 const defaultState = {
     inputValue: '123',
-    list: [1, 2],
+    list: [],
 
 }
-//reducer 可以接收state，但是不能修改state
+/* 
+1.reducer 可以接收state，但是不能修改state
+2.state指的是store里的数据
+3.reducer必须是纯函数，给定固定的输入，就一定会有固定的输出，而且不会有任何副作用
+ */
 export default (state = defaultState, action) => {
-    
-    if(action.type==="change_input_value"){
-        const newState=JSON.parse(JSON.stringify(state));
-        newState.inputValue=action.value;
+
+    console.log('action', action);
+    if (action.type === CHANGE_INPUT_VALUE) {
+        console.log('hello world');
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.inputValue = action.value;
         return newState;
     }
-    if(action.type==='add_todo_item'){
-        const newState=JSON.parse(JSON.stringify(state));
+    if (action.type === ADD_TOTO_ITEM) {
+        const newState = JSON.parse(JSON.stringify(state));
         newState.list.push(newState.inputValue);
-        newState.inputValue="";
+        newState.inputValue = "";
         return newState;
     }
-    console.log(state,action);
+    if (action.type === DELETE_TODO_ITEM) {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.list.splice(action.index, 1);
+        return newState;
+    }
+    console.log(state, action);
     return state;
 }
