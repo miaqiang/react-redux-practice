@@ -1,33 +1,60 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import store from './store';
 
-class TodoList extends Component {
 
-    constructor(props) {
-        super(props);
-
-    }
-    render() {
-        return (
+const TodoList=(props)=>{
+    console.log(props);
+    const {inputValue,list,handleClick,changeInputValue,deleteItem}=props;
+    return (
+        <div>
             <div>
-                <div>
-                    <input type="text" value={this.props.inputValue} />
-                    <button>提交</button>
-                    <ul>
-                        <li>dell </li>
-                    </ul>
-                </div>
+                <input type="text" value={inputValue} 
+                onChange={changeInputValue}/>
+                <button  onClick={handleClick}>提交</button>
+                <ul>
+                    {list.map((item,index)=>{
+                        return <li key={index} onClick={deleteItem}>{item}</li>
+                    })}
+                    
+                </ul>
             </div>
-        )
-    }
+        </div>)
 }
+
 
 const mapStateToProps = (state) => {
     console.log('state', state);
     return {
-        input: state.inputValue,
+        inputValue: state.inputValue,
+        list:state.list,
+    }
+}
+
+//store.dispath
+const mapDispathToProps=(dispath)=>{
+    return {
+        changeInputValue(e){
+            const action={
+                type:'change_input_value',
+                value:e.target.value
+            }
+            console.log(e,e.target.value);
+            dispath(action);
+        },
+        handleClick(){
+            const action={
+                type:'add_item',
+            }
+            dispath(action);
+        },
+        deleteItem(index){
+            const action={
+                type:'delete_item',
+                index:index
+            }
+            dispath(action);
+        }
     }
 
 }
-export default connect(mapStateToProps, null)(TodoList);
+export default connect(mapStateToProps, mapDispathToProps)(TodoList);
