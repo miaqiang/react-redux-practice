@@ -47,30 +47,35 @@
             font-size: 18px;
         }
 
+
+
+
         .searchwrapper {
             float: left;
             position: relative;
-            //background: red;
 
             .slide-enter {
-                transition: all .2s ease-out;
-                width: 160px;
+                transition: all .6s ease-out;
+                width: 240px;
             }
 
-            .slide-enter-active {
+            .slide-active-enter {
+
                 width: 240px;
             }
 
             .slide-exit {
-                transition: all .2s ease-out;
+                transition: all .6s ease-out;
                 width: 240px;
             }
 
-            .slide-exit-active {
+            .slide-active-exit {
 
-                width: 160px;
+                width: 1600px;
+
             }
 
+            //background: red;
             .navSearch {
                 width: 160px;
                 height: 38px;
@@ -150,6 +155,51 @@
                     background: #ec6149;
                 }
             }
+        }
+    }
+
+    .searchInfo {
+        position: absolute;
+        left: 0;
+        top: 58px;
+        width: 240px;
+        // height: 100px;
+        padding: 0 20px;
+        // background: green;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+
+        .searchInfo {
+            margin-bottom: 20px;
+            margin-bottom: 15px;
+            line-height: 20px;
+            font-size: 14px;
+            color: #969696;
+        }
+
+        .searchInfo-switch {
+            float: right;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .searchInfo-list {
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .searchInfo-item {
+            line-height: 20px;
+            padding: 0 5px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            color: #787878;
+            cursor: pointer;
         }
     }
 }
