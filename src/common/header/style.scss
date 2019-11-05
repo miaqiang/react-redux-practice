@@ -182,6 +182,16 @@
             cursor: pointer;
         }
 
+        .serchInfo_refresh {
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+            margin-right: 2px;
+            transition: all .2s ease-in;
+            transform-origin: center center;
+
+        }
+
         .searchInfo-list {
             overflow: hidden;
         }
