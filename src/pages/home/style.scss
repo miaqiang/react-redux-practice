@@ -1,0 +1,38 @@
+.homeWraper {
+    overflow: hidden;
+    width: 960px;
+    margin: 0 auto;
+
+    .homeLeft {
+        margin-left: 15px;
+        padding-top: 30px;
+        height: 625px;
+        width: 625px;
+        float: left;
+
+    }
+
+    .homeRight {
+        width: 240px;
+        float: right;
+    }
+}
+
+.topicWraper {
+    overflow: hidden;
+    padding: 20px 0 10px 0;
+    margin-left: -18px;
+    //background: red;
+
+    .topicItem {
+        top: left;
+        height: 32px;
+        line-height: 32px;
+        margin-left: 18px;
+        font-size: 14px;
+        color: #dcdcdc;
+        background: #f7f7f7;
+        border: 1px solid #dcdcdc;
+    }
+
+}
