@@ -25,4 +25,5 @@ class App extends Component {
     }
 }
 
+console.log('it is test');
 export default App;
